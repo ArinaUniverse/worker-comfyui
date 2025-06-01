@@ -95,7 +95,44 @@ RUN if [ "$MODEL_TYPE" = "flux1-dev-fp8" ]; then \
       wget -q -O models/clip/t5xxl_fp8_e4m3fn.safetensors https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors && \
       wget -q -O models/vae/ae.safetensors https://huggingface.co/lovis93/testllm/resolve/ed9cf1af7465cebca4649157f118e331cf2a084f/ae.safetensors && \
       wget -q -O models/checkpoints/Gemini_ILMixV5.safetensors https://huggingface.co/CuteBlueEyed/GeminiX/resolve/main/Gemini_ILMixV5.safetensors && \
-      wget -q -O models/vae/sdxl_vae.safetensors https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors; \
+      wget -q -O models/checkpoints/waiNSFWIllustrious_v120.safetensors https://huggingface.co/nnnn1111/models/resolve/main/waiNSFWIllustrious_v120.safetensors && \
+      wget -q -O models/checkpoints/Gemini_ILMixWebtoonV2.safetensors https://huggingface.co/CuteBlueEyed/GeminiX/resolve/main/Gemini_ILMixWebtoonV2.safetensors && \
+      wget -q -O models/vae/sdxl_vae.safetensors https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors && \
+      wget -q -O models/loras/Detail_Tweaker_Illustrious_BSY_V3.safetensors https://huggingface.co/CuteBlueEyed/Gemini_ILMix/resolve/main/Detail_Tweaker_Illustrious_BSY_V3.safetensors && \
+      wget -q -O models/loras/aidmaRealisticSkin-IL-v0.1.safetensors https://huggingface.co/CuteBlueEyed/Gemini_ILMix/resolve/main/aidmaRealisticSkin-IL-v0.1.safetensors && \
+      wget -q -O models/loras/aidmahyperrealism_IL.safetensors https://huggingface.co/CuteBlueEyed/Gemini_ILMix/resolve/main/aidmahyperrealism_IL.safetensors && \
+      wget -q -O models/loras/Catherine_GMIL_TAV103.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Catherine_GMIL_TAV103.safetensors && \
+      wget -q -O models/loras/Hanmy_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Hanmy_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Kaho_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Kaho_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Kitakana_GMIL_TAV102.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Kitakana_GMIL_TAV102.safetensors && \
+      wget -q -O models/loras/Kudan_GMIL_TAV102.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Kudan_GMIL_TAV102.safetensors && \
+      wget -q -O models/loras/Li-Duoyuan_GMIL_TAV103.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Li-Duoyuan_GMIL_TAV103.safetensors && \
+      wget -q -O models/loras/Namiko_GMIL_TAV103.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Namiko_GMIL_TAV103.safetensors && \
+      wget -q -O models/loras/Nanamin_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Nanamin_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Nicole_GMIL_TAV103.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Nicole_GMIL_TAV103.safetensors && \
+      wget -q -O models/loras/Nova_GMIL_TAV103.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Nova_GMIL_TAV103.safetensors && \
+      wget -q -O models/loras/Numi_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Numi_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Ririka_GMIL_TAV103.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Ririka_GMIL_TAV103.safetensors && \
+      wget -q -O models/loras/Vicky_GMIL_TAV103.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Vicky_GMIL_TAV103.safetensors && \
+      wget -q -O models/loras/Yetta_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Yetta_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Yudan_GMIL_TAV103.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Yudan_GMIL_TAV103.safetensors && \
+      wget -q -O models/loras/Yuina_GMIL_TAV103.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Yuina_GMIL_TAV103.safetensors && \
+      wget -q -O models/loras/NanJade_GMIL_TAV101.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/NanJade_GMIL_TAV101.safetensors && \
+      wget -q -O models/loras/Mirei_GMIL_TAV102.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Mirei_GMIL_TAV102.safetensors && \
+      wget -q -O models/loras/Henna_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Henna_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Jittaya_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Jittaya_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Emily_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Emily_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Nora_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Nora_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Lomo_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Lomo_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Tessa_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Tessa_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Eun-Bi_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Eun-Bi_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Jennifer_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Jennifer_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/JenniferElf_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/JenniferElf_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/KURA_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/KURA_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Mio_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Mio_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Tenchan_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Tenchan_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Anna_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Anna_GMIL_TAV1.safetensors && \
+      wget -q -O models/loras/Fenny_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Fenny_GMIL_TAV1.safetensors; \
     fi
 
 # Stage 3: Final image
