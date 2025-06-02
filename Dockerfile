@@ -72,15 +72,7 @@ RUN if [ "$MODEL_TYPE" = "flux1-dev-fp8" ]; then \
       wget -q -O models/clip/t5xxl_fp8_e4m3fn.safetensors https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors && \
       wget -q -O models/vae/ae.safetensors https://huggingface.co/lovis93/testllm/resolve/ed9cf1af7465cebca4649157f118e331cf2a084f/ae.safetensors && \
       wget -q -O models/checkpoints/Gemini_ILMixV5.safetensors https://huggingface.co/CuteBlueEyed/GeminiX/resolve/main/Gemini_ILMixV5.safetensors && \
-      wget -q -O models/checkpoints/waiNSFWIllustrious_v120.safetensors https://huggingface.co/nnnn1111/models/resolve/main/waiNSFWIllustrious_v120.safetensors && \
-      wget -q -O models/checkpoints/Gemini_ILMixWebtoonV2.safetensors https://huggingface.co/CuteBlueEyed/GeminiX/resolve/main/Gemini_ILMixWebtoonV2.safetensors && \
-      wget -q -O models/vae/sdxl_vae.safetensors https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors && \
-      wget -q -O models/loras/Nova_GMIL_TAV103.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Nova_GMIL_TAV103.safetensors && \
-      wget -q -O models/loras/Numi_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Numi_GMIL_TAV1.safetensors && \
-      wget -q -O models/loras/Ririka_GMIL_TAV103.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Ririka_GMIL_TAV103.safetensors && \
-      wget -q -O models/loras/Vicky_GMIL_TAV103.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Vicky_GMIL_TAV103.safetensors && \
-      wget -q -O models/loras/Yetta_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/Yetta_GMIL_TAV1.safetensors && \
-      wget -q -O models/loras/KURA_GMIL_TAV1.safetensors https://huggingface.co/CuteBlueEyed/LoRAForGeminiX_IL/resolve/main/KURA_GMIL_TAV1.safetensors; \
+      wget -q -O models/vae/sdxl_vae.safetensors https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors; \
     fi
 
 # Stage 3: Final image
