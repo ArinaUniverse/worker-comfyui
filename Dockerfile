@@ -62,16 +62,26 @@ ARG MODEL_TYPE=flux1-dev-fp8
 WORKDIR /comfyui
 
 # Create necessary directories upfront
-RUN mkdir -p models/checkpoints models/vae models/unet models/clip
+RUN mkdir -p models/checkpoints models/vae models/unet models/clip models/loras
 
-# Download checkpoints/vae/unet/clip models to include in image based on model type
+# Common wget options for robustness (removed -q for debugging)
+ENV WGET_OPTS="--tries=3 --timeout=30 --read-timeout=600 --retry-connrefused --waitretry=5 -c"
 
 RUN if [ "$MODEL_TYPE" = "flux1-dev-fp8" ]; then \
-      wget -q -O models/checkpoints/flux1-dev-fp8.safetensors https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors && \
-      wget -q -O models/clip/clip_l.safetensors https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors && \
-      wget -q -O models/clip/t5xxl_fp8_e4m3fn.safetensors https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors && \
-      wget -q -O models/vae/ae.safetensors https://huggingface.co/lovis93/testllm/resolve/ed9cf1af7465cebca4649157f118e331cf2a084f/ae.safetensors && \
-      wget -q -O models/vae/sdxl_vae.safetensors https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors; \
+      set -e; \
+      echo "Downloading flux1-dev-fp8 base checkpoint (Comfy-Org)..."; \
+      wget $WGET_OPTS -O models/checkpoints/flux1-dev-fp8.safetensors https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors; \
+      echo "Downloading pixelwave_flux1_schnell_fp8 base checkpoint (comfyanonymous)..."; \
+      wget $WGET_OPTS -O models/checkpoints/pixelwave_flux1_schnell_fp8.safetensors https://huggingface.co/mikeyandfriends/PixelWave_FLUX.1-schnell_04/resolve/main/pixelwave_flux1_schnell_04_fp8.safetensors; \
+      echo "Downloading flux_text_encoders clip_l.safetensors (comfyanonymous)..."; \
+      wget $WGET_OPTS -O models/clip/clip_l.safetensors https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors; \
+      echo "Downloading flux_text_encoders t5xxl_fp8_e4m3fn.safetensors (comfyanonymous)..."; \
+      wget $WGET_OPTS -O models/clip/t5xxl_fp8_e4m3fn.safetensors https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors; \
+      echo "Downloading VAE ae.safetensors (lovis93/testllm)..."; \
+      wget $WGET_OPTS -O models/vae/ae.safetensors https://huggingface.co/lovis93/testllm/resolve/ed9cf1af7465cebca4649157f118e331cf2a084f/ae.safetensors; \
+      echo "Downloading VAE sdxl_vae.safetensors (stabilityai/sdxl-vae)..."; \
+      wget $WGET_OPTS -O models/vae/sdxl_vae.safetensors https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors; \
+      echo "Finished downloading all flux1-dev-fp8 models and LoRAs."; \
     fi
 
 # Stage 3: Final image
